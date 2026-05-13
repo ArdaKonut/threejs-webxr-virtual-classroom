@@ -175,8 +175,6 @@ function createLights(){
 
 }
 
-// Overall Goal:
-// This function converts a normal HTML video into a live texture that can be rendered onto a 3D Object.
 function playAudio() {
     const audioLoader = new THREE.AudioLoader();
     audioLoader.load('./assets/dog.mp3', function(buffer){
@@ -189,6 +187,7 @@ function playAudio() {
     });
 }
 
+// This function converts a normal HTML video into a live texture that can be rendered onto a 3D Object.
 function playVideo() {
     // retrieves the HTML video element from the DOM.
     video = document.getElementById('videoPlayer');
@@ -480,9 +479,6 @@ mesh.position.set(-6.65, 5.5, -2);
 scene.add(mesh);
 
 
-// Normal Rendering -> Normally light transitions smoothly: Bright -> Medium -> Dark
-// Toon Rendering (like cartoons/anime) -> Intentionally removes smooth gradients. -> Bright -> Hard Edge -> Dark
-
 // Vertex Shader for Toon Shader
 const vertexShaderTwo = `
 
@@ -493,8 +489,6 @@ void main() {
     vNormal = normalize(normalMatrix * normal);
     gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
 }
-
-
 `;
 
 // Fragment Shader for Toon Shader
